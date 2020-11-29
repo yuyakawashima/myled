@@ -6,7 +6,7 @@
 #include <linux/io.h>
 #include <linux/delay.h>
 
-MODULE_AUTHOR("Yuya Kawashima & Ryuichi Ueda");
+MODULE_AUTHOR("Yuya Kawashima and Ryuichi Ueda");
 MODULE_DESCRIPTION("task1 about driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
@@ -38,34 +38,49 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 	}
 	else if(c == '3'){
 		int i = 0, j, k;
+		gpio_base[10] = 1 << 23;
+		gpio_base[10] = 1 << 25;
 		while(i <= 2){
-			for(j = 1; j <= 2; j++){
+			for(j = 0; j <= 1; j++){
 				for(k = 0; k <= 1; k++){
-					gpio_base[10] = 1 << 23;
 					gpio_base[7] = 1 << 25;
-					mdelay(500);
-					gpio_base[10] = 1 << 23;
+					mdelay(300);
 					gpio_base[10] = 1 << 25;
 					mdelay(100);
 				}
 				gpio_base[7] = 1 << 23;
-				gpio_base[10] = 1 << 25;
-				mdelay(700);
+				mdelay(450);
+				gpio_base[10] = 1 << 23;
+				mdelay(200);
 			}
 			for(j = 0;j <= 5; j++){
-				gpio_base[10] = 1 << 23;
 				gpio_base[7] = 1 << 25;
-				mdelay(400);
-				gpio_base[10] = 1 << 23;
+				mdelay(300);
 				gpio_base[10] = 1 << 25;
 				mdelay(80);
 			}
 			gpio_base[7] = 1 << 23;
-			gpio_base[10] = 1 << 25;
-			mdelay(700);
+			mdelay(450);
 			gpio_base[10] = 1 << 23;
-			gpio_base[10] = 1 << 25;
+			mdelay(200);
 			i++;
+		}
+	}
+	else if(c == '4'){
+		int i, j;
+		gpio_base[10] = 1 << 23;
+		gpio_base[10] = 1 << 25;
+		for(i = 0; i <= 9; i++){
+			for(j = 0; j <= 1; j++){
+				gpio_base[7] = 1 << 25;
+				mdelay(300);
+				gpio_base[10] = 1 << 25;
+				mdelay(100);
+			}
+			gpio_base[7] = 1 << 23;
+			mdelay(450);
+			gpio_base[10] = 1 << 23;
+			mdelay(200);
 		}
 	}
 	return 1;
