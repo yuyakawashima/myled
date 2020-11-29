@@ -24,5 +24,5 @@ $echo 4 > /dev/myled0		//4拍のリズムで点滅(10回で終了)
 ```
 $sudo rmmod myled
 ```
-###実行動画
+### 実行動画
 https://www.youtube.com/watch?v=OcpkBpW5xU0
