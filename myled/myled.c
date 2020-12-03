@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 /*
-//     Copyright (C) 2020  Ryuichi Ueda. All right reserved.
+	Copyright (C) 2020  Ryuichi Ueda. All right reserved.
 */
 
 #include <linux/module.h>
